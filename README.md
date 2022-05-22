@@ -6,9 +6,18 @@
 </p>
 
 ### First get the repo on your machine:
+
+* 1 - clone repo
 ```bash
-$ git clone https://github.com/azimjohn/survey-bot.git
+$ git clone https://github.com/muhammadali-live/latin-crillic-bot
 ```
+* 2 - create a virtual environment and activate
+*  - pip install virtualenv
+*  - virtualenv env
+*  - env\scripts\activate
+* 3 - cd into project "cd my-taxi-api-v2"
+* 4 - pip install -r requirements.txt
+* 5 - python manage.py runserver
 
 
 ### Then install requirements:
@@ -16,19 +25,8 @@ $ git clone https://github.com/azimjohn/survey-bot.git
 $ pip install -r requirements.txt
 ```
 
-### Make the migrations and apply them:
-```bash
-$ python manage.py makemigrations
-$ python manage.py migrate
-```
-
-### Export the bot token, replace `REPLACE_ME` with your bot's token
-```bash
-$ export BOT_TOKEN=REPLACE_ME
-```
-
 ### Finally, run the server 🎉
 ```bash
-$ python manage.py runbot
+$ python3 main.py
 ```
 
