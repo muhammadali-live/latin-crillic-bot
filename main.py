@@ -1,24 +1,25 @@
+from conf import bot
+from polling import bot_polling
 
-import telebot
-from transliterate import to_cyrillic, to_latin
+from transliterate import (
+    to_latin,
+    to_cyrillic
+)
 
-TOKEN = "1647223799:AAG_iXIo5ewOk9_ixy4lmcXWik1X1bipKW8" #<-- Tokeningizni shu yerga yozing
-bot = telebot.TeleBot(token=TOKEN)
 
-# \start komandasi uchun mas'ul funksiya
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    username = message.from_user.first_name # Bu usul bilan foydalanuvchi nomini olishimiz mumkin
-    xabar = f'Assalom alaykum,{username} Kirill-Lotin-Kirill botiga xush kelibsiz!'
-    xabar += '\nMatningizni yuboring.'
-    bot.reply_to(message, xabar)
+    username = message.from_user.first_name
+    wel_txt = f"Hello and Welcome <b>{username}</b> 🎉\n"
+    wel_txt += "Send to me any messages for to see proccess \nExample: Telegram -> Телеграм 🔺🔻"
+    bot.send_message(message.chat.id, wel_txt, parse_mode="HTML")
 
-# matnlar uchun mas'ul funksiya
+
 @bot.message_handler(func=lambda msg: msg.text is not None)
 def translit(message):
     msg = message.text
-    javob = lambda msg: to_cyrillic(msg) if msg.isascii() else to_latin(msg)
+    def javob(msg): return to_cyrillic(msg) if msg.isascii() else to_latin(msg)
     bot.reply_to(message, javob(msg))
 
 
-bot.polling()
+bot_polling()
