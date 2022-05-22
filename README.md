@@ -2,7 +2,7 @@
 ## Telegram bot for transliterate built with Telebot
 
 <p align="center">
- <img src="./screen.png" width="500">
+ <img src="./screen.png" width="500" height="800">
 </p>
 
 ### First get the repo on your machine:
